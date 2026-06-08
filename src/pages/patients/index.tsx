@@ -392,14 +392,14 @@ function PatientsContent() {
                 placeholder="全部疾病类型"
                 options={diseaseTypeOptions}
                 value={filterDiseaseTypeId}
-                onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilterDiseaseTypeId(e.target.value)}
+                onChange={(value: any) => setFilterDiseaseTypeId(value)}
               />
             </div>
             <div className="w-full sm:w-40">
               <Select
                 options={sortOptions}
                 value={sortBy}
-                onChange={(e: ChangeEvent<HTMLSelectElement>) => setSortBy(e.target.value as SortOption)}
+                onChange={(value: any) => setSortBy(value as SortOption)}
               />
             </div>
           </div>
@@ -458,12 +458,9 @@ function PatientsContent() {
           />
           <Select
             label="性别"
-            name="gender"
             options={genderOptions}
             value={formData.gender}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-              setFormData({ ...formData, gender: e.target.value as Gender })
-            }
+            onChange={(value: any) => setFormData({ ...formData, gender: value as Gender })}
             error={formErrors.gender}
             placeholder="请选择性别"
           />
@@ -476,12 +473,9 @@ function PatientsContent() {
           />
           <Select
             label="疾病类型"
-            name="diseaseTypeId"
             options={diseaseTypeOptions}
             value={formData.diseaseTypeId || ''}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-              setFormData({ ...formData, diseaseTypeId: Number(e.target.value) || 0 })
-            }
+            onChange={(value: any) => setFormData({ ...formData, diseaseTypeId: Number(value) || 0 })}
             error={formErrors.diseaseTypeId}
             placeholder="请选择疾病类型"
           />
@@ -512,13 +506,12 @@ function PatientsContent() {
           </div>
           <Select
             label="血型"
-            name="bloodType"
             options={bloodTypeOptions}
             value={formData.bloodType || ''}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+            onChange={(value: any) =>
               setFormData({
                 ...formData,
-                bloodType: (e.target.value as BloodType) || undefined,
+                bloodType: (value as BloodType) || undefined,
               })
             }
             placeholder="请选择血型"

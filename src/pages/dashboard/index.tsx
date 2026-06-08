@@ -166,7 +166,7 @@ function DashboardContent() {
       ),
       iconBg: 'bg-green-100',
       iconColor: 'text-green-600',
-      href: '/followups',
+      href: '/schedule',
     },
     {
       title: '待处理计划',
@@ -178,7 +178,7 @@ function DashboardContent() {
       ),
       iconBg: 'bg-yellow-100',
       iconColor: 'text-yellow-600',
-      href: '/followups',
+      href: '/schedule',
     },
     {
       title: '异常提醒',
@@ -291,7 +291,7 @@ function DashboardContent() {
       align: 'right',
       render: (plan) => (
         <Link
-          href={`/followups/${plan.id}`}
+          href={`/schedule/${plan.id}`}
           className="text-primary-600 hover:text-primary-700 text-sm font-medium"
         >
           处理
@@ -311,7 +311,7 @@ function DashboardContent() {
             今天是 {formatDate(new Date())}，祝您工作顺利
           </p>
         </div>
-        <Link href="/followups">
+        <Link href="/schedule">
           <Button variant="primary">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -357,7 +357,7 @@ function DashboardContent() {
                 <h3 className="text-lg font-semibold text-gray-900">最近随访记录</h3>
                 <p className="text-sm text-gray-500 mt-0.5">最近5条随访记录</p>
               </div>
-              <Link href="/followups">
+              <Link href="/schedule">
                 <Button variant="outline" size="sm">
                   查看全部
                 </Button>
@@ -382,7 +382,7 @@ function DashboardContent() {
                 <h3 className="text-lg font-semibold text-gray-900">待处理随访计划</h3>
                 <p className="text-sm text-gray-500 mt-0.5">今日和明日的随访计划</p>
               </div>
-              <Link href="/followups">
+              <Link href="/schedule">
                 <Button variant="outline" size="sm">
                   查看全部
                 </Button>

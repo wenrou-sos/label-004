@@ -669,9 +669,7 @@ function PatientDetailContent() {
                     <Select
                       options={genderOptions}
                       value={profileForm.gender || ''}
-                      onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                        setProfileForm({ ...profileForm, gender: e.target.value as Gender })
-                      }
+                      onChange={(value: any) => setProfileForm({ ...profileForm, gender: value as Gender })}
                       error={profileErrors.gender}
                       placeholder="请选择"
                     />
@@ -733,10 +731,10 @@ function PatientDetailContent() {
                     <Select
                       options={diseaseTypeOptions}
                       value={profileForm.diseaseTypeId || ''}
-                      onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                      onChange={(value: any) =>
                         setProfileForm({
                           ...profileForm,
-                          diseaseTypeId: Number(e.target.value) || 0,
+                          diseaseTypeId: Number(value) || 0,
                         })
                       }
                       error={profileErrors.diseaseTypeId}
@@ -769,10 +767,10 @@ function PatientDetailContent() {
                     <Select
                       options={bloodTypeOptions}
                       value={profileForm.bloodType || ''}
-                      onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                      onChange={(value: any) =>
                         setProfileForm({
                           ...profileForm,
-                          bloodType: (e.target.value as BloodType) || undefined,
+                          bloodType: (value as BloodType) || undefined,
                         })
                       }
                       placeholder="请选择"
@@ -1313,10 +1311,10 @@ function PatientDetailContent() {
             label="随访频率"
             options={frequencyOptions}
             value={planForm.frequency || ''}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+            onChange={(value: any) =>
               setPlanForm({
                 ...planForm,
-                frequency: (e.target.value as FollowupFrequency) || undefined,
+                frequency: (value as FollowupFrequency) || undefined,
               })
             }
             placeholder="请选择频率"

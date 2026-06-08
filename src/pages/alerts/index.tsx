@@ -339,14 +339,14 @@ function AlertsContent() {
               <Select
                 options={severityOptions}
                 value={filterSeverity}
-                onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilterSeverity(e.target.value)}
+                onChange={(value: any) => setFilterSeverity(value)}
               />
             </div>
             <div className="w-full sm:w-40">
               <Select
                 options={statusOptions}
                 value={filterStatus}
-                onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilterStatus(e.target.value)}
+                onChange={(value: any) => setFilterStatus(value)}
               />
             </div>
           </div>

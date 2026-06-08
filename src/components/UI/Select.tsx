@@ -1,4 +1,6 @@
-import { type SelectHTMLAttributes, forwardRef } from 'react';
+import { forwardRef } from 'react';
+import { Select as AntSelect } from 'antd';
+import type { SelectProps as AntSelectProps } from 'antd';
 import { cn } from '@/lib/utils';
 
 export interface SelectOption {
@@ -7,50 +9,40 @@ export interface SelectOption {
   disabled?: boolean;
 }
 
-interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'children'> {
+interface SelectProps extends AntSelectProps {
   label?: string;
   error?: string;
   helperText?: string;
   options: SelectOption[];
-  placeholder?: string;
 }
 
-const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ label, error, helperText, options, placeholder, className, id, ...props }, ref) => {
-    const inputId = id || props.name;
+const Select = forwardRef<any, SelectProps>(
+  ({ label, error, helperText, options, className, style, placeholder, size = 'large', allowClear = true, onChange, ...props }, ref) => {
+    const handleChange: AntSelectProps['onChange'] = (value, option) => {
+      if (onChange) {
+        onChange(value, option);
+      }
+    };
 
     return (
       <div className="w-full">
         {label && (
-          <label
-            htmlFor={inputId}
-            className="block text-sm font-medium text-gray-700 mb-1.5"
-          >
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
             {label}
           </label>
         )}
-        <select
+        <AntSelect
           ref={ref}
-          id={inputId}
-          className={cn(
-            'block w-full rounded-lg border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm transition-colors',
-            'border bg-white text-gray-900 py-2.5 pl-3.5 pr-10 appearance-none',
-            error && 'border-red-500 focus:border-red-500 focus:ring-red-500',
-            className
-          )}
+          size={size}
+          style={{ width: '100%', ...style }}
+          options={options}
+          placeholder={placeholder}
+          allowClear={allowClear}
+          status={error ? 'error' : undefined}
+          className={cn(className)}
+          onChange={handleChange}
           {...props}
-        >
-          {placeholder && (
-            <option value="" disabled>
-              {placeholder}
-            </option>
-          )}
-          {options.map((option) => (
-            <option key={option.value} value={option.value} disabled={option.disabled}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+        />
         {error ? (
           <p className="mt-1.5 text-sm text-red-600">{error}</p>
         ) : helperText ? (

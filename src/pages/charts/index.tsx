@@ -330,7 +330,7 @@ function ChartsContent() {
             options={patientOptions}
             placeholder="请选择患者"
             value={selectedPatientId}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedPatientId(e.target.value)}
+            onChange={(value: any) => setSelectedPatientId(value)}
           />
 
           <div>
@@ -361,7 +361,7 @@ function ChartsContent() {
             label="时间范围"
             options={TIME_RANGE_OPTIONS}
             value={timeRange}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setTimeRange(e.target.value as TimeRangeType)}
+            onChange={(value: any) => setTimeRange(value as TimeRangeType)}
           />
 
           {timeRange === 'custom' && (

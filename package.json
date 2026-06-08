@@ -10,11 +10,13 @@
     "lint": "next lint",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts",
+    "prisma:seed": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts",
     "db:backup": "node scripts/backup.js"
   },
   "dependencies": {
+    "@ant-design/icons": "^6.2.5",
     "@prisma/client": "^5.10.0",
+    "antd": "^6.4.3",
     "bcryptjs": "^2.4.3",
     "date-fns": "^3.3.1",
     "jsonwebtoken": "^9.0.2",

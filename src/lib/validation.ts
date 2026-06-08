@@ -23,14 +23,14 @@ export const patientSchema = z.object({
 export const healthRecordSchema = z.object({
   patientId: z.number().int().positive(),
   recordDate: z.string().min(1, '记录日期不能为空'),
-  systolic: z.number().min(40).max(260).optional(),
-  diastolic: z.number().min(20).max(180).optional(),
-  heartRate: z.number().int().min(20).max(250).optional(),
-  fastingGlucose: z.number().min(1).max(30).optional(),
-  postprandialGlucose: z.number().min(1).max(40).optional(),
-  cholesterol: z.number().min(1).max(20).optional(),
-  triglycerides: z.number().min(0.1).max(20).optional(),
-  weight: z.number().min(1).max(500).optional(),
+  systolic: z.number().min(1).max(300).optional(),
+  diastolic: z.number().min(1).max(200).optional(),
+  heartRate: z.number().int().min(1).max(300).optional(),
+  fastingGlucose: z.number().min(0.1).max(50).optional(),
+  postprandialGlucose: z.number().min(0.1).max(60).optional(),
+  cholesterol: z.number().min(0.1).max(30).optional(),
+  triglycerides: z.number().min(0.1).max(30).optional(),
+  weight: z.number().min(0.1).max(800).optional(),
   note: z.string().optional(),
 });
 

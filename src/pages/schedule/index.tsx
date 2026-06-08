@@ -580,12 +580,9 @@ function ScheduleContent() {
         <div className="space-y-4">
           <Select
             label="患者"
-            name="patientId"
             options={patientOptions}
             value={formData.patientId || ''}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-              setFormData({ ...formData, patientId: Number(e.target.value) || 0 })
-            }
+            onChange={(value: any) => setFormData({ ...formData, patientId: Number(value) || 0 })}
             error={formErrors.patientId}
             placeholder="请选择患者"
           />
@@ -600,23 +597,19 @@ function ScheduleContent() {
           />
           <Select
             label="状态"
-            name="status"
             options={statusOptions}
             value={formData.status}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-              setFormData({ ...formData, status: e.target.value as FollowupPlanStatus })
-            }
+            onChange={(value: any) => setFormData({ ...formData, status: value as FollowupPlanStatus })}
             placeholder="请选择状态"
           />
           <Select
             label="随访频率"
-            name="frequency"
             options={frequencyOptions}
             value={formData.frequency || ''}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+            onChange={(value: any) =>
               setFormData({
                 ...formData,
-                frequency: (e.target.value as FollowupFrequency) || undefined,
+                frequency: (value as FollowupFrequency) || undefined,
               })
             }
             placeholder="请选择随访频率（可选）"
